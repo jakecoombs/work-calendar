@@ -1,5 +1,5 @@
 {
-  "name": "date-fns-calendar",
+  "name": "gui-calendar",
   "version": "0.1.0",
   "main": "dist/index.jsx",
   "module": "dist/index.jsx",
