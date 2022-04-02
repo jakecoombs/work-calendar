@@ -1,10 +1,6 @@
 import { format } from "date-fns";
 import { enUS } from "date-fns/locale";
-import {
-  AiOutlineArrowLeft,
-  AiOutlineArrowRight,
-  AiOutlineClear,
-} from "react-icons/ai";
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import { nextMonth, oldMonth } from "../calendar";
 import * as S from "./styles";
 
@@ -36,17 +32,6 @@ export function Header({
   return (
     <>
       <S.HeaderSection>
-        <S.MonthAndYearSection
-          fontWeightMonthAndYear={fontWeightMonthAndYear}
-          color={colorTextHeader}
-        >
-          <h1>
-            {format(currentDate, "MMMM", {
-              locale: enUS,
-            })}
-          </h1>
-          <h1>{format(currentDate, "yyyy")}</h1>
-        </S.MonthAndYearSection>
         <S.ButtonsSection>
           <button
             onClick={() => {
@@ -71,16 +56,18 @@ export function Header({
               color={`${colorArrows}` || "#000"}
             />
           </button>
-          <AiOutlineClear
-            size={sizeArrow || "15"}
-            onClick={clearSelection}
-            title={"Clear"}
-            style={{
-              cursor: "pointer",
-              color: `${colorArrows}` || "#FFF",
-            }}
-          />
         </S.ButtonsSection>
+        <S.MonthAndYearSection
+          fontWeightMonthAndYear={fontWeightMonthAndYear}
+          color={colorTextHeader}
+        >
+          <h1>
+            {format(currentDate, "MMMM", {
+              locale: enUS,
+            })}
+          </h1>
+          <h1>{format(currentDate, "yyyy")}</h1>
+        </S.MonthAndYearSection>
       </S.HeaderSection>
     </>
   );

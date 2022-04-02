@@ -1,5 +1,6 @@
 import React from "react";
 import { Calendar } from "./lib/components/Calendar";
+import { Feed } from "./lib/components/Feed";
 import { Navigation } from "./lib/components/Navigation";
 
 const App: React.FC = () => {
@@ -9,35 +10,28 @@ const App: React.FC = () => {
       <div
         style={{
           display: "flex",
-          alignItems: "center",
           justifyContent: "center",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <Calendar
-            padding="20px"
-            bgColor="#001e3c"
-            bgMonth="#001e3c"
-            borderRadius="20px"
-            colorArrows="#FFF"
-            colorTextHeader="#FFF"
-            colorTextDaysOfTheWeek="#FFF"
-            colorDays="#FFF"
-            colorSelectDay="#FFF"
-            wDay="60px"
-            hDay="50px"
-            sizeArrow="25"
-            fontWeightMonthAndYear="bold"
-            circleSelectDayColor="#007fff"
-            initialDate={new Date("2022-03-15")}
-            endDate={new Date("2022-03-28")}
-          />
-        </div>
+        <Calendar
+          padding="20px"
+          bgColor="#666"
+          bgMonth="#666"
+          borderRadius="20px"
+          colorArrows="#FFF"
+          colorTextHeader="#FFF"
+          colorTextDaysOfTheWeek="#FFF"
+          colorDays="#FFF"
+          colorSelectDay="#FFF"
+          wDay="60px"
+          hDay="50px"
+          sizeArrow="20"
+          fontWeightMonthAndYear="bold"
+          circleSelectDayColor="#007fff"
+          initialDate={new Date("2022-03-15")}
+          endDate={new Date("2022-03-28")}
+        />
+        <Feed />
       </div>
     </>
   );

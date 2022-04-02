@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 interface MonthAndYearSectionProps {
   color?: string;
@@ -24,6 +24,7 @@ export const MonthAndYearSection = styled.div<MonthAndYearSectionProps>`
   display: flex;
   width: 100%;
   align-items: center;
+  margin-left: 20px;
 
   h1 {
     font-size: 1.2rem;
