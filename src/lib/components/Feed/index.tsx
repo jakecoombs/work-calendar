@@ -25,25 +25,27 @@ function Feed() {
   ];
 
   return (
-    <S.FeedContainer>
-      <h1 style={{ margin: 0 }}>Feed</h1>
-      {feedValues.map((item) => (
-        <S.FeedItem>
-          <h4 style={{ margin: 0 }}>{item.name}</h4>
-          {item.inOffice && <p>In Office: {item.inOffice}</p>}
-          {item.upcomingEvent && (
-            <div>
-              <h5>Upcoming Event: </h5>
-              {item.upcomingEvent.dates.map((date) => (
-                <p>
-                  {item.upcomingEvent.location}: {date}
-                </p>
-              ))}
-            </div>
-          )}
-        </S.FeedItem>
-      ))}
-    </S.FeedContainer>
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <S.FeedTitle>Feed</S.FeedTitle>
+      <S.FeedContainer>
+        {feedValues.map((item) => (
+          <S.FeedItem>
+            <h4 style={{ margin: 0 }}>{item.name}</h4>
+            {item.inOffice && <p>In Office: {item.inOffice}</p>}
+            {item.upcomingEvent && (
+              <div>
+                <h5>Upcoming Event: </h5>
+                {item.upcomingEvent.dates.map((date) => (
+                  <p>
+                    {item.upcomingEvent.location}: {date}
+                  </p>
+                ))}
+              </div>
+            )}
+          </S.FeedItem>
+        ))}
+      </S.FeedContainer>
+    </div>
   );
 }
 
