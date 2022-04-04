@@ -1,10 +1,12 @@
+import { ProfileImage } from "../ProfileImage";
+import { getUserById } from "../utils/users";
 import * as S from "./styles";
 
 function Feed() {
   const feedValues = [
-    { name: "Martina Brown", inOffice: "25/05/2022", upcomingEvent: null },
+    { user: getUserById(4), inOffice: "25/05/2022", upcomingEvent: null },
     {
-      name: "Nelly Newman",
+      user: getUserById(3),
       inOffice: null,
       upcomingEvent: {
         title: "Graduate Training",
@@ -13,7 +15,7 @@ function Feed() {
       },
     },
     {
-      name: "Billy Gates",
+      user: getUserById(2),
       inOffice: null,
       upcomingEvent: {
         title: "Client Onboarding",
@@ -21,16 +23,30 @@ function Feed() {
         dates: ["26/05/2022", "27/05/2022"],
       },
     },
-    { name: "John Marston", inOffice: "22/05/2022", upcomingEvent: null },
+    { user: getUserById(1), inOffice: "22/05/2022", upcomingEvent: null },
   ];
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <S.FeedTitle>Feed</S.FeedTitle>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        border: "2px solid black",
+        marginLeft: "20px",
+      }}
+    >
+      <S.FeedTitle style={{ backgroundColor: "#000", color: "#fff" }}>
+        Feed:
+      </S.FeedTitle>
       <S.FeedContainer>
         {feedValues.map((item) => (
           <S.FeedItem>
-            <h4 style={{ margin: 0 }}>{item.name}</h4>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <div style={{ marginRight: "5px" }}>
+                <ProfileImage user={item.user} />
+              </div>
+              <h4 style={{ margin: 0 }}>{item.user.name}</h4>
+            </div>
             {item.inOffice && <p>In Office: {item.inOffice}</p>}
             {item.upcomingEvent && (
               <div>

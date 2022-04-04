@@ -16,6 +16,7 @@ export const OptionContainer = styled.div<{ active?: boolean }>`
 export const ProfileContainer = styled.div`
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   cursor: pointer;
   flex: 1;
 `;

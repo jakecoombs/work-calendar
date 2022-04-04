@@ -1,8 +1,11 @@
-import { NavigationProps } from "./types";
-
 import * as S from "./styles";
 
+import { NavigationProps } from "./types";
+import { getUserById } from "../utils/users";
+import { ProfileImage } from "../ProfileImage";
+
 function Navigation({ title }: NavigationProps) {
+  const user = getUserById(1);
   return (
     <S.NavigationContainer>
       <h1 style={{ marginRight: "20px" }}>{title}</h1>
@@ -11,7 +14,14 @@ function Navigation({ title }: NavigationProps) {
       <S.OptionContainer>Our Services</S.OptionContainer>
       <S.OptionContainer>Projects</S.OptionContainer>
       <S.ProfileContainer>
-        <h3>John Marston</h3>
+        <div
+          style={{
+            marginRight: "5px",
+          }}
+        >
+          <ProfileImage user={user} />
+        </div>
+        <h3>{user.name}</h3>
       </S.ProfileContainer>
     </S.NavigationContainer>
   );

@@ -31,7 +31,6 @@ function Calendar({
   const daysWeek = strings["weekdays"];
   const [currentDate, setCurrentDate] = useState(new Date());
   const [multipleDates, setMultipleDates] = useState<Date[]>([]);
-  console.log(multipleDates);
 
   const data = takeMonth(currentDate)();
 
