@@ -41,7 +41,9 @@ function Feed() {
       </S.FeedTitle>
       <S.FeedContainer>
         {feedValues.map((item) => (
-          <S.FeedItem>
+          <S.FeedItem
+            style={{ background: item.user.bgColor, color: item.user.color }}
+          >
             <div style={{ display: "flex", alignItems: "center" }}>
               <div style={{ marginRight: "5px" }}>
                 <ProfileImage user={item.user} />

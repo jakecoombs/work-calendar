@@ -125,7 +125,6 @@ interface CircleProps {
   display?: string;
 }
 
-
 interface ContinuosBackgroudProps {
   color?: string;
   bgColor?: string;
@@ -188,12 +187,17 @@ export const Day = styled.div<DayProps>`
   }
 `;
 
-export const TextDay = styled.p<DayProps>`
+export const TextDay = styled.div<DayProps>`
   font-size: ${(props) => props.fontSize || "1rem"};
   font-weight: ${(props) => props.fontWeight || "normal"};
   color: ${(props) => props.color || "#FFF"};
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 2;
+  p {
+    margin: 0;
+    padding: 0;
+  }
 `;

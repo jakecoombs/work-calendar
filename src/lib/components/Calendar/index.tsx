@@ -8,6 +8,9 @@ import { CalendarProps } from "./types";
 import * as S from "./styles";
 
 import { Header } from "./Header";
+import { calendarEvents } from "../../../consts";
+import { getUserById } from "../utils/users";
+import { CalendarEntry } from "../CalendarEntry";
 
 function Calendar({
   bgColor,
@@ -127,6 +130,20 @@ function Calendar({
     }
   }
 
+  function getEventsForDate(day: Date) {
+    const eventsOccuring = calendarEvents.filter(
+      (event) => event.date.toString() === day.toString()
+    );
+    return (
+      <>
+        <p>{format(day, "dd")}</p>
+        {eventsOccuring.map((event) => (
+          <CalendarEntry event={event} />
+        ))}
+      </>
+    );
+  }
+
   function blockCursor() {
     if (multipleDates.length >= 2) {
       return "not-allowed";
@@ -198,7 +215,7 @@ function Calendar({
                         : ""
                     }`}
                   >
-                    {format(day, "dd")}
+                    {getEventsForDate(day)}
                   </S.TextDay>
                   {!isContinuous && (
                     <S.Circle
