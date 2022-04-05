@@ -33,6 +33,7 @@ function Feed() {
         flexDirection: "column",
         border: "2px solid black",
         marginLeft: "20px",
+        borderRadius: "5px",
       }}
     >
       <S.FeedTitle style={{ backgroundColor: "#000", color: "#fff" }}>

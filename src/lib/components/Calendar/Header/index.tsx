@@ -1,6 +1,7 @@
 import { format } from "date-fns";
 import { enUS } from "date-fns/locale";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
+import { BookButton } from "../../BookButton";
 import { nextMonth, oldMonth } from "../calendar";
 import * as S from "./styles";
 
@@ -27,7 +28,6 @@ export function Header({
   setCurrentDate,
   colorArrows,
   sizeArrow,
-  clearSelection,
 }: HeaderProps) {
   return (
     <>
@@ -68,6 +68,8 @@ export function Header({
           </h1>
           <h1>{format(currentDate, "yyyy")}</h1>
         </S.MonthAndYearSection>
+        <div style={{ flex: 1 }}></div>
+        <BookButton />
       </S.HeaderSection>
     </>
   );
