@@ -5,3 +5,9 @@ export interface User {
   image: string;
   color: string;
 }
+
+export interface Event {
+  userId: number;
+  date: Date;
+  location: string;
+}

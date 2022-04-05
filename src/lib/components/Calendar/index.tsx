@@ -135,39 +135,58 @@ function Calendar({
   }
 
   return (
-    <>
-      <S.Container>
-        <S.CalendarSection
-          backgroudColor={bgColor}
-          padding={padding}
-          borderRadius={borderRadius}
-        >
-          <Header
-            colorTextHeader={colorTextHeader || "#000"}
-            currentDate={currentDate}
-            fontWeightMonthAndYear={fontWeightMonthAndYear || "normal"}
-            setCurrentDate={setCurrentDate}
-            colorArrows={colorArrows || "#000"}
-            sizeArrow={sizeArrow || "1.5rem"}
-            clearSelection={clearSelection}
-          />
-          <S.DayWeeksSection>
-            {daysWeek.map((dayName, i) => (
-              <S.DayWeek key={dayName} color={colorTextDaysOfTheWeek}>
-                {dayName}
-              </S.DayWeek>
-            ))}
-          </S.DayWeeksSection>
-          <S.Month BgColor={bgMonth}>
-            {data.map((week: any) => (
-              <S.WeeksSection key={week}>
-                {week.map((day: Date) => (
-                  <S.Day
-                    key={String(day)}
-                    onClick={async () => {
-                      getSelectedMultipleDates(day, multipleDates);
-                    }}
-                    cursor={blockCursor()}
+    <S.Container>
+      <S.CalendarSection
+        backgroudColor={bgColor}
+        padding={padding}
+        borderRadius={borderRadius}
+      >
+        <Header
+          colorTextHeader={colorTextHeader || "#000"}
+          currentDate={currentDate}
+          fontWeightMonthAndYear={fontWeightMonthAndYear || "normal"}
+          setCurrentDate={setCurrentDate}
+          colorArrows={colorArrows || "#000"}
+          sizeArrow={sizeArrow || "1.5rem"}
+          clearSelection={clearSelection}
+        />
+        <S.DayWeeksSection>
+          {daysWeek.map((dayName, i) => (
+            <S.DayWeek key={dayName} color={colorTextDaysOfTheWeek}>
+              {dayName}
+            </S.DayWeek>
+          ))}
+        </S.DayWeeksSection>
+        <S.Month BgColor={bgMonth}>
+          {data.map((week: any) => (
+            <S.WeeksSection key={week}>
+              {week.map((day: Date) => (
+                <S.Day
+                  key={String(day)}
+                  onClick={async () => {
+                    getSelectedMultipleDates(day, multipleDates);
+                  }}
+                  cursor={blockCursor()}
+                  color={`${
+                    backgroundColorDateMultiple(day) === "day-selected"
+                      ? colorSelectDay
+                      : colorDays
+                  }`}
+                  fontWeight={`${
+                    backgroundColorDateMultiple(day) === "day-selected"
+                      ? "bold"
+                      : ""
+                  }`}
+                  fontSize={`${
+                    backgroundColorDateMultiple(day) === "day-selected"
+                      ? "1.3rem"
+                      : ""
+                  }`}
+                  width={wDay}
+                  height={hDay}
+                >
+                  <S.TextDay
+                    onClick={() => getSelectedMultipleDates(day, multipleDates)}
                     color={`${
                       backgroundColorDateMultiple(day) === "day-selected"
                         ? colorSelectDay
@@ -178,77 +197,54 @@ function Calendar({
                         ? "bold"
                         : ""
                     }`}
-                    fontSize={`${
-                      backgroundColorDateMultiple(day) === "day-selected"
-                        ? "1.3rem"
-                        : ""
-                    }`}
-                    width={wDay}
-                    height={hDay}
                   >
-                    <S.TextDay
-                      onClick={() =>
-                        getSelectedMultipleDates(day, multipleDates)
-                      }
-                      color={`${
+                    {format(day, "dd")}
+                  </S.TextDay>
+                  {!isContinuous && (
+                    <S.Circle
+                      bgColor={circleSelectDayColor}
+                      display={`${
                         backgroundColorDateMultiple(day) === "day-selected"
-                          ? colorSelectDay
-                          : colorDays
-                      }`}
-                      fontWeight={`${
-                        backgroundColorDateMultiple(day) === "day-selected"
-                          ? "bold"
-                          : ""
+                          ? ""
+                          : "none"
                       }`}
                     >
-                      {format(day, "dd")}
-                    </S.TextDay>
-                    {!isContinuous && (
-                      <S.Circle
-                        bgColor={circleSelectDayColor}
-                        display={`${
-                          backgroundColorDateMultiple(day) === "day-selected"
-                            ? ""
-                            : "none"
-                        }`}
-                      >
-                        {" "}
-                      </S.Circle>
-                    )}
-                    {isContinuous && (
-                      <S.ContinuosBackground
-                        bgColor={circleSelectDayColor}
-                        display={`${
-                          backgroundColorDateMultiple(day) === "day-selected"
-                            ? ""
-                            : "none"
-                        }`}
-                        borderRadius={
-                          isFistOfMultipleDates(day)
-                            ? "20px 0px 0 20px"
-                            : "0" && isLastOfMultipleDates(day)
-                            ? "0 20px 20px 0"
-                            : "0"
-                        }
-                        style={{
-                          borderRadius: `${
-                            isFistOfMultipleDates(day) === "one-item"
-                              ? "20px"
-                              : ""
-                          }`,
-                        }}
-                      >
-                        {" "}
-                      </S.ContinuosBackground>
-                    )}
-                  </S.Day>
-                ))}
-              </S.WeeksSection>
-            ))}
-          </S.Month>
-        </S.CalendarSection>
-      </S.Container>
-    </>
+                      {" "}
+                    </S.Circle>
+                  )}
+                  {isContinuous && (
+                    <S.ContinuosBackground
+                      bgColor={circleSelectDayColor}
+                      display={`${
+                        backgroundColorDateMultiple(day) === "day-selected"
+                          ? ""
+                          : "none"
+                      }`}
+                      borderRadius={
+                        isFistOfMultipleDates(day)
+                          ? "20px 0px 0 20px"
+                          : "0" && isLastOfMultipleDates(day)
+                          ? "0 20px 20px 0"
+                          : "0"
+                      }
+                      style={{
+                        borderRadius: `${
+                          isFistOfMultipleDates(day) === "one-item"
+                            ? "20px"
+                            : ""
+                        }`,
+                      }}
+                    >
+                      {" "}
+                    </S.ContinuosBackground>
+                  )}
+                </S.Day>
+              ))}
+            </S.WeeksSection>
+          ))}
+        </S.Month>
+      </S.CalendarSection>
+    </S.Container>
   );
 }
 
