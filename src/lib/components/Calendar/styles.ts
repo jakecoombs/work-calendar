@@ -180,6 +180,7 @@ export const Day = styled.div<DayProps>`
   font-weight: ${(props) => props.fontWeight || "normal"};
   color: ${(props) => props.color || "#FFF"};
   cursor: ${(props) => props.cursor || "pointer"};
+  border: 1px solid white;
 
   .selectedDay {
     background-color: ${(props) => props.BgColor || "#FFF"};
@@ -188,7 +189,7 @@ export const Day = styled.div<DayProps>`
 `;
 
 export const TextDay = styled.div<DayProps>`
-  font-size: ${(props) => props.fontSize || "1rem"};
+  font-size: ${(props) => props.fontSize || "0.75rem"};
   font-weight: ${(props) => props.fontWeight || "normal"};
   color: ${(props) => props.color || "#FFF"};
   display: flex;
@@ -200,4 +201,11 @@ export const TextDay = styled.div<DayProps>`
     margin: 0;
     padding: 0;
   }
+`;
+
+export const ScrollableEntries = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-height: 58px;
+  overflow-y: scroll;
 `;

@@ -62,6 +62,36 @@ export const calendarEvents: Event[] = [
     location: "NYC",
   },
   {
+    userId: 3,
+    date: new Date("04/11/2022"),
+    location: "NYC",
+  },
+  {
+    userId: 1,
+    date: new Date("04/12/2022"),
+    location: "London",
+  },
+  {
+    userId: 2,
+    date: new Date("04/12/2022"),
+    location: "London",
+  },
+  {
+    userId: 2,
+    date: new Date("04/13/2022"),
+    location: "London",
+  },
+  {
+    userId: 4,
+    date: new Date("04/14/2022"),
+    location: "Japan",
+  },
+  {
+    userId: 4,
+    date: new Date("04/15/2022"),
+    location: "Japan",
+  },
+  {
     userId: 4,
     date: new Date("04/18/2022"),
     location: "Japan",

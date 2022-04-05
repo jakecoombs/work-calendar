@@ -9,7 +9,6 @@ import * as S from "./styles";
 
 import { Header } from "./Header";
 import { calendarEvents } from "../../../consts";
-import { getUserById } from "../utils/users";
 import { CalendarEntry } from "../CalendarEntry";
 
 function Calendar({
@@ -137,9 +136,11 @@ function Calendar({
     return (
       <>
         <p>{format(day, "dd")}</p>
-        {eventsOccuring.map((event) => (
-          <CalendarEntry event={event} />
-        ))}
+        <S.ScrollableEntries>
+          {eventsOccuring.map((event) => (
+            <CalendarEntry event={event} />
+          ))}
+        </S.ScrollableEntries>
       </>
     );
   }
