@@ -1,7 +1,7 @@
 import * as S from "./styles";
 
-function BookButton() {
-  return <S.Button>Book Office Days</S.Button>;
+function BookButton({ onClick }: { onClick: () => void }) {
+  return <S.Button onClick={onClick}>Book Office Days</S.Button>;
 }
 
 export { BookButton };

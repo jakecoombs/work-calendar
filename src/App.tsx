@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { Calendar } from "./lib/components/Calendar";
 import { Feed } from "./lib/components/Feed";
 import { Navigation } from "./lib/components/Navigation";
+import { PopUpBooking } from "./lib/components/PopUpBooking";
 
 const App: React.FC = () => {
+  const [showBooking, setShowBooking] = useState(false);
+
   return (
     <>
+      <PopUpBooking shown={showBooking} onClose={() => setShowBooking(false)} />
       <Navigation title="Calendar" />
       <div
         style={{
@@ -30,6 +34,7 @@ const App: React.FC = () => {
           circleSelectDayColor="#007fff"
           initialDate={new Date("2022-03-15")}
           endDate={new Date("2022-03-28")}
+          showPopUp={() => setShowBooking(true)}
         />
         <Feed />
       </div>

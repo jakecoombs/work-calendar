@@ -17,6 +17,7 @@ interface HeaderProps {
   colorTextHeader: string;
   setCurrentDate: (date: Date) => void;
   clearSelection: () => void;
+  showPopUp: () => void;
   sizeArrow: string;
   colorArrows: string;
 }
@@ -28,6 +29,7 @@ export function Header({
   setCurrentDate,
   colorArrows,
   sizeArrow,
+  showPopUp,
 }: HeaderProps) {
   return (
     <S.HeaderSection>
@@ -68,7 +70,7 @@ export function Header({
         <h1>{format(currentDate, "yyyy")}</h1>
       </S.MonthAndYearSection>
       <div style={{ flex: 1 }}></div>
-      <BookButton />
+      <BookButton onClick={() => showPopUp()} />
     </S.HeaderSection>
   );
 }
