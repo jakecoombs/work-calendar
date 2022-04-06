@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "URL_OF_YOUR_REPOSITORY"
+    "url": "https://github.com/jakecoombs/work-calendar"
   },
   "dependencies": {
     "@babel/cli": "^7.17.6",
