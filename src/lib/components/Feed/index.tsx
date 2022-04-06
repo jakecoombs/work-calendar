@@ -1,5 +1,5 @@
 import { ProfileImage } from "../ProfileImage";
-import { getUserById } from "../utils/users";
+import { getUserById } from "../../utils/users";
 import * as S from "./styles";
 
 function Feed() {

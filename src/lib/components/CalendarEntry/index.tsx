@@ -1,6 +1,6 @@
 import * as S from "./styles";
 
-import { getUserById } from "../utils/users";
+import { getUserById } from "../../utils/users";
 import { CalendarEntryProps } from "./types";
 
 function CalendarEntry({ event, center }: CalendarEntryProps) {
