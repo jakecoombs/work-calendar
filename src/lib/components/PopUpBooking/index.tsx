@@ -20,17 +20,11 @@ function PopUpBooking({
   return (
     <S.Modal shown={shown}>
       <S.Content>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <S.Header>
           <h2>Add Office Day</h2>
           <button onClick={onClose}>Close</button>
-        </div>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            maxWidth: "300px",
-          }}
-        >
+        </S.Header>
+        <S.Inputs>
           <input
             type="date"
             onChange={(e) => {
@@ -71,7 +65,7 @@ function PopUpBooking({
           >
             Add Date
           </button>
-        </div>
+        </S.Inputs>
         <p style={{ color: "red" }}>{errorText}</p>
       </S.Content>
     </S.Modal>

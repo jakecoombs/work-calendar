@@ -19,3 +19,20 @@ export const Content = styled.div`
   border-radius: 5px;
   border: 2px solid black;
 `;
+
+export const Inputs = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: 0 auto;
+
+  input {
+    margin-bottom: 10px;
+  }
+`;
+
+export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
