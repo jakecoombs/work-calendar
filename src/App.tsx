@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { calendarEvents } from "./consts";
 import { Calendar } from "./lib/components/Calendar";
 import { Feed } from "./lib/components/Feed";
 import { Navigation } from "./lib/components/Navigation";
@@ -6,10 +7,16 @@ import { PopUpBooking } from "./lib/components/PopUpBooking";
 
 const App: React.FC = () => {
   const [showBooking, setShowBooking] = useState(false);
+  const [calEvents, setCalEvents] = useState(calendarEvents);
 
   return (
     <>
-      <PopUpBooking shown={showBooking} onClose={() => setShowBooking(false)} />
+      <PopUpBooking
+        shown={showBooking}
+        onClose={() => setShowBooking(false)}
+        calEvents={calEvents}
+        setCalEvents={setCalEvents}
+      />
       <Navigation title="Calendar" />
       <div
         style={{
@@ -35,6 +42,7 @@ const App: React.FC = () => {
           initialDate={new Date("2022-03-15")}
           endDate={new Date("2022-03-28")}
           showPopUp={() => setShowBooking(true)}
+          calEvents={calEvents}
         />
         <Feed />
       </div>

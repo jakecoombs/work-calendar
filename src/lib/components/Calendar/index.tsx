@@ -8,7 +8,6 @@ import { CalendarProps } from "./types";
 import * as S from "./styles";
 
 import { Header } from "./Header";
-import { calendarEvents } from "../../../consts";
 import { CalendarEntry } from "../CalendarEntry";
 
 function Calendar({
@@ -30,6 +29,7 @@ function Calendar({
   initialDate,
   endDate,
   showPopUp,
+  calEvents,
 }: CalendarProps) {
   const daysWeek = strings["weekdays"];
   const [currentDate, setCurrentDate] = useState(new Date());
@@ -131,8 +131,10 @@ function Calendar({
   }
 
   function getEventsForDate(day: Date) {
-    const eventsOccuring = calendarEvents.filter(
-      (event) => event.date.toString() === day.toString()
+    const eventsOccuring = calEvents.filter(
+      (event) =>
+        event.date.toISOString().substring(0, 10) ===
+        day.toISOString().substring(0, 10)
     );
     return (
       <>

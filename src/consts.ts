@@ -1,4 +1,4 @@
-import { User, Event } from "./types";
+import { User, CalendarEvent } from "./types";
 
 export const users: User[] = [
   {
@@ -35,7 +35,7 @@ export const users: User[] = [
   },
 ];
 
-export const calendarEvents: Event[] = [
+export const calendarEvents: CalendarEvent[] = [
   {
     userId: 1,
     date: new Date("04/05/2022"),

@@ -53,7 +53,7 @@ function Feed() {
             {item.inOffice && <p>In Office: {item.inOffice}</p>}
             {item.upcomingEvent && (
               <div>
-                <h5>Upcoming Event: </h5>
+                <h5>Upcoming CalendarEvent: </h5>
                 {item.upcomingEvent.dates.map((date) => (
                   <p>
                     {item.upcomingEvent.location}: {date}

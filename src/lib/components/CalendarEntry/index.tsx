@@ -1,9 +1,9 @@
 import * as S from "./styles";
 
-import { Event } from "../../../types";
+import { CalendarEvent } from "../../../types";
 import { getUserById } from "../utils/users";
 
-function CalendarEntry({ event }: { event: Event }) {
+function CalendarEntry({ event }: { event: CalendarEvent }) {
   const user = getUserById(event.userId);
   return (
     <S.Entry style={{ background: user.bgColor, color: user.color }}>

@@ -1,3 +1,5 @@
+import { CalendarEvent } from "../../../types";
+
 export interface CalendarProps {
   bgColor?: string;
   padding?: string;
@@ -24,4 +26,5 @@ export interface CalendarProps {
   endDate?: Date;
   isContinuous?: boolean;
   showPopUp: () => void;
+  calEvents: CalendarEvent[];
 }

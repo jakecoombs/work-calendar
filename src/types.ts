@@ -7,7 +7,7 @@ export interface User {
   color: string;
 }
 
-export interface Event {
+export interface CalendarEvent {
   userId: number;
   date: Date;
   location: string;
