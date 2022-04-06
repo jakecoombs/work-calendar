@@ -5,6 +5,7 @@ import { Feed } from "./lib/components/Feed";
 import { Navigation } from "./lib/components/Navigation";
 import { ViewSelection } from "./lib/components/ViewSelection";
 import { PopUpBooking } from "./lib/components/PopUpBooking";
+import { WeekView } from "./lib/components/WeekView";
 
 const App: React.FC = () => {
   const [showBooking, setShowBooking] = useState(false);
@@ -47,7 +48,7 @@ const App: React.FC = () => {
             calEvents={calEvents}
           />
         )}
-        {!monthView && <div>Week View</div>}
+        {!monthView && <WeekView calEvents={calEvents} />}
         <Feed />
       </div>
     </>
