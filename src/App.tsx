@@ -20,7 +20,7 @@ const App: React.FC = () => {
         calEvents={calEvents}
         setCalEvents={setCalEvents}
       />
-      <Navigation title="Calendar" />
+      <Navigation />
       <ViewSelection
         showPopUp={() => setShowBooking(true)}
         monthView={monthView}
