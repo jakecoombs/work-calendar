@@ -54,20 +54,6 @@ export const MonthAndYearSection = styled.div<MonthAndYearSectionProps>`
   }
 `;
 
-export const ButtonsSection = styled.div`
-  display: flex;
-  align-items: center;
-
-  button {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-`;
-
 export const DayWeeksSection = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);

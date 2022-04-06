@@ -16,7 +16,8 @@ export const FeedContainer = styled.div`
 `;
 
 export const FeedItem = styled.div`
-  border: 2px solid #666;
+  border: 2px solid black;
+  border-radius: 3px;
   padding: 5px;
   margin: 5px;
   margin-right: 15px;
