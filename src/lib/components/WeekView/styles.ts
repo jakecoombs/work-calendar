@@ -17,7 +17,7 @@ export const WeekContainer = styled.div`
   }
 `;
 
-export const Entry = styled.div`
+export const Entry = styled.div<{ isToday?: boolean }>`
   font-size: 1rem;
   width: 250px;
   margin: 2px 0;
@@ -28,6 +28,8 @@ export const Entry = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  ${(props) => props.isToday && "background-color: #222"};
 
   p {
     margin: 0;

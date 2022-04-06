@@ -15,7 +15,12 @@ function WeekView({ calEvents }: WeekViewProps) {
         day.toISOString().substring(0, 10)
     );
     return (
-      <S.Entry>
+      <S.Entry
+        isToday={
+          new Date().toISOString().substring(0, 10) ===
+          day.toISOString().substring(0, 10)
+        }
+      >
         <p style={{ fontWeight: "bold" }}>{format(day, "eee dd MMMM")}</p>
         {eventsOccuring.map((event) => (
           <CalendarEntry event={event} center />

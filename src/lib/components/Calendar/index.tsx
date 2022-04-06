@@ -35,9 +35,10 @@ function Calendar({
         event.date.toISOString().substring(0, 10) ===
         day.toISOString().substring(0, 10)
     );
+
     return (
       <>
-        <p style={{ fontWeight: "bold" }}>{format(day, "dd")}</p>
+        <S.DateNumber>{format(day, "dd")}</S.DateNumber>
         <S.ScrollableEntries>
           {eventsOccuring.map((event) => (
             <CalendarEntry event={event} />
@@ -73,7 +74,15 @@ function Calendar({
           {data.map((week: any) => (
             <S.WeeksSection key={week}>
               {week.map((day: Date) => (
-                <S.Day key={String(day)} width={wDay} height={hDay}>
+                <S.Day
+                  key={String(day)}
+                  width={wDay}
+                  height={hDay}
+                  isToday={
+                    new Date().toISOString().substring(0, 10) ===
+                    day.toISOString().substring(0, 10)
+                  }
+                >
                   <S.TextDay>{getEventsForDate(day)}</S.TextDay>
                 </S.Day>
               ))}

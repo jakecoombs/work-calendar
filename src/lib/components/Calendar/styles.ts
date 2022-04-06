@@ -100,6 +100,7 @@ interface DayProps {
   fontWeight?: string;
   fontSize?: string;
   cursor?: string;
+  isToday?: boolean;
 }
 
 interface CircleProps {
@@ -163,16 +164,12 @@ export const Day = styled.div<DayProps>`
   padding-top: 6px;
   padding: 10px;
   padding-right: 10px;
-  background-color: ${(props) => props.BgColor || ""};
+  background-color: ${(props) =>
+    props.isToday ? "#222" : props.BgColor || ""};
   font-weight: ${(props) => props.fontWeight || "normal"};
   color: ${(props) => props.color || "#FFF"};
   cursor: ${(props) => props.cursor || "pointer"};
   border: 1px solid white;
-
-  .selectedDay {
-    background-color: ${(props) => props.BgColor || "#FFF"};
-    color: ${(props) => props.color || "#000"};
-  }
 `;
 
 export const TextDay = styled.div<DayProps>`
@@ -195,4 +192,8 @@ export const ScrollableEntries = styled.div`
   flex-direction: column;
   max-height: 58px;
   overflow-y: scroll;
+`;
+
+export const DateNumber = styled.p`
+  font-weight: bold;
 `;
