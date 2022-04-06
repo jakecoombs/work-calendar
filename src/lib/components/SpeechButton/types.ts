@@ -1,9 +1,6 @@
 import { CalendarEvent } from "../../../types";
 
-export interface ViewSelectionProps {
-  showPopUp: () => void;
-  monthView: boolean;
-  setMonthView: (show: boolean) => void;
+export interface SpeechButtonProps {
   calEvents: CalendarEvent[];
   setCalEvents: (events: CalendarEvent[]) => void;
 }

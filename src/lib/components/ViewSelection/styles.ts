@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 50%;
+  width: 70%;
   margin: 20px auto;
   display: flex;
   align-items: center;
@@ -11,14 +11,16 @@ export const Container = styled.div`
 export const TabsContainer = styled.div`
   display: flex;
   flex: 1;
-  margin-right: 40px;
+  margin: 0 20px;
 `;
 
 export const TabContainer = styled.div<{ active: boolean }>`
   flex: 1;
+  display: flex;
   border: 2px solid black;
   border-radius: 3px;
-  text-align: center;
-  margin: 0 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
   ${(props) => (props.active ? "background-color: black; color: white;" : "")}
 `;

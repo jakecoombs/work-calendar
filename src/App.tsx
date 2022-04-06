@@ -25,6 +25,8 @@ const App: React.FC = () => {
         showPopUp={() => setShowBooking(true)}
         monthView={monthView}
         setMonthView={setMonthView}
+        calEvents={calEvents}
+        setCalEvents={setCalEvents}
       />
       <div
         style={{
