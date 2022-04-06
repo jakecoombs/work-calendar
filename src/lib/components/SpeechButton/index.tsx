@@ -1,5 +1,5 @@
 import { format } from "date-fns";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import * as S from "./styles";
 import { SpeechButtonProps } from "./types";
 
@@ -10,8 +10,6 @@ function SpeechButton({ calEvents, setCalEvents }: SpeechButtonProps) {
   const [listening, setIsListening] = useState(false);
   const [responseText, setResponseText] = useState("");
   const [addDate, setAddDate] = useState<Date>(initialDate);
-
-  useEffect(() => console.log(calEvents), [calEvents]);
 
   function timeout(delay: number) {
     return new Promise((res) => setTimeout(res, delay));
