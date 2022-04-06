@@ -24,6 +24,7 @@ export const Container = styled.div`
 export const CalendarSection = styled.div<CalendarSectionProps>`
   background: ${(props) => props.backgroudColor || "#FFF"};
   padding: ${(props) => props.padding || "10px"};
+  padding-top: 5px;
   border-radius: ${(props) => props.borderRadius || "5px"};
 `;
 

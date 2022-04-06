@@ -7,13 +7,12 @@ export interface CalendarProps {
   colorArrows?: string;
   colorTextHeader?: string;
   colorTextDaysOfTheWeek?: string;
-  colorDays?: string;
+
   bgMonth?: string;
   wDay?: string;
   hDay?: string;
   sizeArrow?: string;
-  colorSelectDay?: string;
-  circleSelectDayColor?: string;
+
   fontWeightMonthAndYear?:
     | "bold"
     | "normal"
@@ -21,9 +20,5 @@ export interface CalendarProps {
     | "lighter"
     | "initial"
     | "inherit";
-
-  initialDate?: Date;
-  endDate?: Date;
-  isContinuous?: boolean;
   calEvents: CalendarEvent[];
 }

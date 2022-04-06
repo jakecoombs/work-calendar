@@ -15,7 +15,6 @@ interface HeaderProps {
     | "inherit";
   colorTextHeader: string;
   setCurrentDate: (date: Date) => void;
-  clearSelection: () => void;
   sizeArrow: string;
   colorArrows: string;
 }
