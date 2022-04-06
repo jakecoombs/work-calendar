@@ -165,9 +165,9 @@ export const Day = styled.div<DayProps>`
   padding: 10px;
   padding-right: 10px;
   background-color: ${(props) =>
-    props.isToday ? "#222" : props.BgColor || ""};
+    props.isToday ? "#FFF" : props.BgColor || ""};
   font-weight: ${(props) => props.fontWeight || "normal"};
-  color: ${(props) => props.color || "#FFF"};
+  color: ${(props) => (props.isToday ? "#000" : "#FFF")};
   cursor: ${(props) => props.cursor || "pointer"};
   border: 1px solid white;
 `;
@@ -175,7 +175,6 @@ export const Day = styled.div<DayProps>`
 export const TextDay = styled.div<DayProps>`
   font-size: ${(props) => props.fontSize || "0.75rem"};
   font-weight: ${(props) => props.fontWeight || "normal"};
-  color: ${(props) => props.color || "#FFF"};
   display: flex;
   flex-direction: column;
   align-items: center;

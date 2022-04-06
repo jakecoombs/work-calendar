@@ -22,14 +22,14 @@ export const Entry = styled.div<{ isToday?: boolean }>`
   width: 250px;
   margin: 2px 0;
   padding: 2px;
-  border: 1px solid white;
+  border: 1px solid ${(props) => (props.isToday ? "black" : "white")};
   border-radius: 3px;
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  ${(props) => props.isToday && "background-color: #222"};
+  ${(props) => props.isToday && "background-color: #fff; color: #000"};
 
   p {
     margin: 0;

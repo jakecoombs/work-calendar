@@ -29,7 +29,7 @@ function Calendar({
 
   const data = takeMonth(currentDate)();
 
-  function getEventsForDate(day: Date) {
+  function getEventsForDate(day: Date, isToday: boolean) {
     const eventsOccuring = calEvents.filter(
       (event) =>
         event.date.toISOString().substring(0, 10) ===
@@ -41,7 +41,7 @@ function Calendar({
         <S.DateNumber>{format(day, "dd")}</S.DateNumber>
         <S.ScrollableEntries>
           {eventsOccuring.map((event) => (
-            <CalendarEntry event={event} />
+            <CalendarEntry isToday={isToday} event={event} />
           ))}
         </S.ScrollableEntries>
       </>
@@ -73,19 +73,21 @@ function Calendar({
         <S.Month BgColor={bgMonth}>
           {data.map((week: any) => (
             <S.WeeksSection key={week}>
-              {week.map((day: Date) => (
-                <S.Day
-                  key={String(day)}
-                  width={wDay}
-                  height={hDay}
-                  isToday={
-                    new Date().toISOString().substring(0, 10) ===
-                    day.toISOString().substring(0, 10)
-                  }
-                >
-                  <S.TextDay>{getEventsForDate(day)}</S.TextDay>
-                </S.Day>
-              ))}
+              {week.map((day: Date) => {
+                const isToday =
+                  new Date().toISOString().substring(0, 10) ===
+                  day.toISOString().substring(0, 10);
+                return (
+                  <S.Day
+                    key={String(day)}
+                    width={wDay}
+                    height={hDay}
+                    isToday={isToday}
+                  >
+                    <S.TextDay>{getEventsForDate(day, isToday)}</S.TextDay>
+                  </S.Day>
+                );
+              })}
             </S.WeeksSection>
           ))}
         </S.Month>

@@ -14,16 +14,16 @@ function WeekView({ calEvents }: WeekViewProps) {
         event.date.toISOString().substring(0, 10) ===
         day.toISOString().substring(0, 10)
     );
+
+    const isToday =
+      new Date().toISOString().substring(0, 10) ===
+      day.toISOString().substring(0, 10);
+
     return (
-      <S.Entry
-        isToday={
-          new Date().toISOString().substring(0, 10) ===
-          day.toISOString().substring(0, 10)
-        }
-      >
+      <S.Entry isToday={isToday}>
         <p style={{ fontWeight: "bold" }}>{format(day, "eee dd MMMM")}</p>
         {eventsOccuring.map((event) => (
-          <CalendarEntry event={event} center />
+          <CalendarEntry isToday={isToday} event={event} center />
         ))}
       </S.Entry>
     );
