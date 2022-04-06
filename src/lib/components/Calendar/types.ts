@@ -25,6 +25,5 @@ export interface CalendarProps {
   initialDate?: Date;
   endDate?: Date;
   isContinuous?: boolean;
-  showPopUp: () => void;
   calEvents: CalendarEvent[];
 }

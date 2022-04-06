@@ -28,7 +28,6 @@ function Calendar({
   isContinuous,
   initialDate,
   endDate,
-  showPopUp,
   calEvents,
 }: CalendarProps) {
   const daysWeek = strings["weekdays"];
@@ -170,7 +169,6 @@ function Calendar({
           colorArrows={colorArrows || "#000"}
           sizeArrow={sizeArrow || "1.5rem"}
           clearSelection={clearSelection}
-          showPopUp={showPopUp}
         />
         <S.DayWeeksSection>
           {daysWeek.map((dayName, i) => (
